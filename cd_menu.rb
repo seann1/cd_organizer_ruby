@@ -1,10 +1,11 @@
 require './lib/cd_organizer'
 require './lib/artist'
-
+require 'colored'
+require 'rainbow/ext/string'
 
 
 def main_menu
-  puts"
+  puts "
 ║░█░█░║░█░█░█░║░█░█░║
 ║░█░█░║░█░█░█░║░█░█░║
 ║░║░║░║░║░║░║░║░║░║░║
@@ -17,6 +18,10 @@ def main_menu
   ______________________
   'a' add cd
   ______________________
+  'b' add artist
+  ______________________
+  'c' add album
+  ______________________
   'x' exit
   ______________________"
   main_choice = gets.chomp
@@ -27,6 +32,10 @@ def main_menu
     search_cds
   elsif main_choice == 'a'
     add_cd
+  elsif main_choice == 'b'
+    add_artist
+  elsif main_choice == 'c'
+    ad_album
   elsif main_choice == 'x'
     puts "Goodbye"
   else
@@ -37,6 +46,19 @@ end
   def view_cds
    Cd_organizer.display_cds
    main_menu
+  end
+
+  def add_artist
+    puts "Enter artist name"
+    user_artist = gets.chomp
+    Cd_organizer.add_cd(user_artist)
+    main_menu
+  end
+
+  def add_album
+    puts "which artist would you like to add an album for?"
+    user_artist = gets.chomp
+
   end
 
   def search_cds
@@ -68,7 +90,7 @@ end
     user_artist = gets.chomp
     puts "enter album name"
     user_album = gets.chomp
-    Cd_organizer.add_cd(user_artist, user_album)
+    Cd_organizer.add_cd(user_artist)
     main_menu
   end
 

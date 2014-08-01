@@ -12,8 +12,8 @@ class Cd_organizer
     @@all_cds =[]
   end
 
-  def Cd_organizer.add_cd(artist, title)
-    album = Artist.new(artist, title)
+  def Cd_organizer.add_cd(artist)
+    album = Artist.new(artist)
     @@all_cds << album
   end
 

@@ -2,7 +2,7 @@ class Artist
 
   @albums = []
 
-  def initialize(artist, name)
+  def initialize(artist)
     @artist = artist
     @name = name
   end
